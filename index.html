@@ -3,97 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Soft Finds | Bright & Cheerful</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <title>The Soft Finds | Tech Savvy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sunny-yellow: #FFEB3B;
-      --vibrant-orange: #FF9800;
-      --sunset-red: #FF5722;
-      --bright-red: #F44336;
-      --deep-rose: #E91E63;
-      --text-dark: #332B00;
+      --deep-blue: #0D47A1;    /* Primary Brand */
+      --royal-blue: #1976D2;   /* Buttons */
+      --sky-blue: #42A5F5;     /* Accents */
+      --light-blue: #90CAF9;   /* Borders */
+      --ice-blue: #E1F5FE;     /* Background */
       --white: #FFFFFF;
+      --text: #0D47A1;
     }
 
     body {
-      background-color: var(--sunny-yellow);
-      color: var(--text-dark);
-      font-family: 'Quicksand', sans-serif;
-      margin: 0; padding: 0;
+      background-color: var(--ice-blue);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      margin: 0; padding: 0; line-height: 1.6;
     }
 
     nav {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 8%; background: var(--white);
+      padding: 1.2rem 8%; background: var(--white);
       position: sticky; top: 0; z-index: 1000;
-      border-bottom: 4px solid var(--vibrant-orange);
+      border-bottom: 2px solid var(--light-blue);
     }
 
-    .logo { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--sunset-red); }
+    .logo { font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; }
+    .logo span { color: var(--sky-blue); }
 
     .hero {
-      text-align: center; padding: 60px 5% 100px;
-      background: var(--white);
-      clip-path: ellipse(150% 100% at 50% 0%);
+      text-align: center; padding: 100px 5%;
+      background: linear-gradient(180deg, var(--white) 0%, var(--ice-blue) 100%);
     }
 
-    .hero h1 { font-family: 'Outfit', sans-serif; font-size: 3.5rem; margin: 0; color: var(--bright-red); }
-    .hero p { font-size: 1.2rem; margin-top: 10px; font-weight: 700; color: var(--vibrant-orange); }
+    .hero h1 { font-size: 3.5rem; margin: 0; font-weight: 900; }
+    .hero p { font-size: 1.2rem; opacity: 0.8; max-width: 600px; margin: 20px auto 0; }
 
     .grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px; max-width: 1100px; margin: -50px auto 80px; padding: 0 5%;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px; max-width: 1200px; margin: -50px auto 100px; padding: 0 5%;
     }
 
     .card {
-      background: var(--white); border-radius: 30px; padding: 35px;
-      box-shadow: 0 15px 0px var(--vibrant-orange); transition: 0.3s;
-      text-align: center; border: 3px solid var(--text-dark);
+      background: var(--white); border-radius: 20px; padding: 40px;
+      box-shadow: 0 10px 30px rgba(13, 71, 161, 0.05);
+      transition: 0.3s ease; border: 1px solid var(--light-blue);
+      text-align: left;
     }
 
-    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 0px var(--text-dark); }
+    .card:hover { transform: translateY(-10px); border-color: var(--royal-blue); }
 
     .btn {
-      display: inline-block; padding: 14px 30px;
-      background: var(--deep-rose); color: white; border-radius: 15px;
-      font-weight: 700; text-decoration: none; transition: 0.2s;
-      border: 2px solid var(--text-dark);
+      display: inline-block; padding: 12px 30px;
+      background: var(--royal-blue); color: white; border-radius: 8px;
+      font-weight: 700; text-decoration: none; transition: 0.3s;
+      margin-top: 20px;
     }
 
-    .btn:hover { background: var(--sunset-red); transform: rotate(-2deg); }
+    .btn:hover { background: var(--deep-blue); }
 
-    footer { text-align: center; padding: 50px; background: var(--text-dark); color: var(--sunny-yellow); }
+    footer { text-align: center; padding: 60px; background: var(--white); border-top: 1px solid var(--light-blue); }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="logo">THE SOFT FINDS</div>
-    <a href="https://linktr.ee/thedreamyfinds" class="btn" style="padding: 8px 15px; font-size: 0.8rem;">SHOP ALL</a>
+    <div class="logo">SOFT<span>FINDS</span></div>
+    <a href="https://linktr.ee/thedreamyfinds" class="btn" style="margin:0; padding: 10px 20px;">Shop List</a>
   </nav>
 
   <header class="hero">
-    <h1>Bright Finds ☀️</h1>
-    <p>Hand-picked essentials to light up your daily routine.</p>
+    <h1>Smart <em>Aesthetics</em></h1>
+    <p>Curating high-performance essentials for the modern digital workspace.</p>
   </header>
 
   <div class="grid">
     <div class="card">
-      <h3>✨ 3D Glow Board</h3>
-      <p>The viral LED writing pad that adds a warm, cheerful glow to your desk.</p>
+      <div style="color: var(--sky-blue); font-weight: 800; font-size: 0.8rem; margin-bottom: 10px;">VIRAL FIND</div>
+      <h3>3D Glow Board</h3>
+      <p>The luminous acrylic LED board that transforms your desk into a creative hub.</p>
       <a href="https://amzn.to/3NVIKxW" target="_blank" class="btn">View on Amazon</a>
     </div>
 
     <div class="card">
-      <h3>🍊 Citrus Decor</h3>
-      <p>Vibrant accents that bring a pop of energy to any room.</p>
-      <a href="#" class="btn">Explore Curation</a>
+      <div style="color: var(--sky-blue); font-weight: 800; font-size: 0.8rem; margin-bottom: 10px;">TECH ESSENTIAL</div>
+      <h3>Mechanical Keys</h3>
+      <p>Precision typing meets sleek design. The ultimate upgrade for your daily workflow.</p>
+      <a href="#" class="btn">Explore Gear</a>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2026 The Soft Finds. Stay Cheerful!</p>
+    <p>&copy; 2026 The Soft Finds. Powered by Blue.</p>
   </footer>
 
 </body>
