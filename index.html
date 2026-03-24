@@ -3,98 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Soft Finds | Boldly Curated</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <title>The Soft Finds | Bright & Cheerful</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #FF4081;      /* Vivid Pink */
-      --secondary: #F50057;    /* Deep Rose */
-      --accent: #D5006D;       /* Magenta */
-      --dark: #880E4F;         /* Maroon (Text) */
-      --bg: #FFF5F8;           /* Soft Pink Tint */
-      --card-bg: #FFFFFF;
-      --shadow: 0 10px 30px rgba(245, 0, 87, 0.1);
+      --sunny-yellow: #FFEB3B;
+      --vibrant-orange: #FF9800;
+      --sunset-red: #FF5722;
+      --bright-red: #F44336;
+      --deep-rose: #E91E63;
+      --text-dark: #332B00;
+      --white: #FFFFFF;
     }
 
     body {
-      background-color: var(--bg);
-      color: var(--dark);
+      background-color: var(--sunny-yellow);
+      color: var(--text-dark);
       font-family: 'Quicksand', sans-serif;
       margin: 0; padding: 0;
     }
 
     nav {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 8%; background: white;
+      padding: 1rem 8%; background: var(--white);
       position: sticky; top: 0; z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-bottom: 4px solid var(--vibrant-orange);
     }
 
-    .logo { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--secondary); }
-    .logo span { color: var(--dark); }
+    .logo { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--sunset-red); }
 
     .hero {
-      text-align: center; padding: 100px 5%;
-      background: linear-gradient(135deg, #FF4081 0%, #D5006D 100%);
-      color: white;
+      text-align: center; padding: 60px 5% 100px;
+      background: var(--white);
+      clip-path: ellipse(150% 100% at 50% 0%);
     }
 
-    .hero h1 { font-family: 'Outfit', sans-serif; font-size: 3.5rem; margin: 0; }
-    .hero p { font-size: 1.2rem; opacity: 0.9; margin-top: 15px; }
+    .hero h1 { font-family: 'Outfit', sans-serif; font-size: 3.5rem; margin: 0; color: var(--bright-red); }
+    .hero p { font-size: 1.2rem; margin-top: 10px; font-weight: 700; color: var(--vibrant-orange); }
 
     .grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px; max-width: 1200px; margin: -50px auto 100px; padding: 0 5%;
+      gap: 25px; max-width: 1100px; margin: -50px auto 80px; padding: 0 5%;
     }
 
     .card {
-      background: var(--card-bg); border-radius: 20px; padding: 30px;
-      box-shadow: var(--shadow); transition: 0.3s ease;
-      text-align: center; border: 2px solid transparent;
+      background: var(--white); border-radius: 30px; padding: 35px;
+      box-shadow: 0 15px 0px var(--vibrant-orange); transition: 0.3s;
+      text-align: center; border: 3px solid var(--text-dark);
     }
 
-    .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 0px var(--text-dark); }
 
     .btn {
-      display: inline-block; padding: 12px 30px;
-      background: var(--secondary); color: white; border-radius: 50px;
-      font-weight: 700; text-decoration: none; transition: 0.3s;
-      margin-top: 20px;
+      display: inline-block; padding: 14px 30px;
+      background: var(--deep-rose); color: white; border-radius: 15px;
+      font-weight: 700; text-decoration: none; transition: 0.2s;
+      border: 2px solid var(--text-dark);
     }
 
-    .btn:hover { background: var(--dark); box-shadow: 0 5px 15px rgba(245, 0, 87, 0.3); }
+    .btn:hover { background: var(--sunset-red); transform: rotate(-2deg); }
 
-    footer { text-align: center; padding: 50px; color: var(--accent); font-weight: 600; }
+    footer { text-align: center; padding: 50px; background: var(--text-dark); color: var(--sunny-yellow); }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="logo">THE SOFT <span>FINDS</span></div>
-    <a href="#" class="btn" style="margin: 0; padding: 8px 20px;">Best Sellers</a>
+    <div class="logo">THE SOFT FINDS</div>
+    <a href="https://linktr.ee/thedreamyfinds" class="btn" style="padding: 8px 15px; font-size: 0.8rem;">SHOP ALL</a>
   </nav>
 
   <header class="hero">
-    <h1>Vibrant <em>Vibes</em></h1>
-    <p>The boldest, most aesthetic finds for your home and lifestyle.</p>
+    <h1>Bright Finds ☀️</h1>
+    <p>Hand-picked essentials to light up your daily routine.</p>
   </header>
 
   <div class="grid">
     <div class="card">
-      <h3>✨ 3D Glow Memo Board</h3>
-      <p>Light up your dreams with this viral LED acrylic board. Perfect for quotes and reminders!</p>
-      <a href="https://amzn.to/3NVIKxW" target="_blank" class="btn">Get it on Amazon</a>
+      <h3>✨ 3D Glow Board</h3>
+      <p>The viral LED writing pad that adds a warm, cheerful glow to your desk.</p>
+      <a href="https://amzn.to/3NVIKxW" target="_blank" class="btn">View on Amazon</a>
     </div>
 
     <div class="card">
-      <h3>☁️ Velvet Comfort</h3>
-      <p>Luxury meets playfulness. Explore our collection of soft-touch home essentials.</p>
-      <a href="#" class="btn">Explore More</a>
+      <h3>🍊 Citrus Decor</h3>
+      <p>Vibrant accents that bring a pop of energy to any room.</p>
+      <a href="#" class="btn">Explore Curation</a>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2026 The Soft Finds. All rights reserved.</p>
+    <p>&copy; 2026 The Soft Finds. Stay Cheerful!</p>
   </footer>
 
 </body>
