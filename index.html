@@ -12,29 +12,32 @@
       /* ── Cloud Baby 2.0 — warmer, richer, more irresistible ── */
       --sky:        #b8dcf0;
       --sky-lt:     #e4f3fb;
-      --sky-dk:     #4a9ec7;
-      --sky-vivid:  #2e86b5;
+      --sky-dk:     #4a9ec7;      /* deeper, more clickable blue */
+      --sky-vivid:  #2e86b5;      /* CTA punch colour */
       --mint:       #aee8d8;
       --mint-lt:    #d8f5ee;
-      --mint-dk:    #3dbc9e;
-      --blush:      #ffd6e7;
+      --mint-dk:    #3dbc9e;      /* richer teal for accents */
+      --blush:      #ffd6e7;      /* warmer pink — more desirable */
       --blush-dk:   #f48fb1;
-      --lavender:   #e8ddfa;
+      --lavender:   #e8ddfa;      /* new accent — girlier, more aesthetic */
       --lav-dk:     #b39ddb;
-      --butter:     #fff0c2;
+      --butter:     #fff0c2;      /* richer yellow for sale badges */
       --butter-dk:  #f9a825;
       --white:      #ffffff;
-      --off:        #f5f9fc;
+      --off:        #f5f9fc;      /* slightly cooler off-white */
       --card-bg:    #ffffff;
-      --text:       #1e2f38;
+      --text:       #1e2f38;      /* darker = more readable = more trustworthy */
       --text-md:    #506070;
       --text-lt:    #8aaabb;
       --border:     rgba(74,158,199,.15);
       --border-hover: rgba(74,158,199,.4);
+
+      /* ── CTA gradient — the most important colour in the whole site ── */
       --cta:        linear-gradient(135deg, #4a9ec7 0%, #3dbc9e 100%);
       --cta-hover:  linear-gradient(135deg, #2e86b5 0%, #2ea88c 100%);
       --cta-shadow: 0 4px 18px rgba(46,134,181,.35);
       --cta-shadow-hover: 0 8px 28px rgba(46,134,181,.5);
+
       --r-pill:   999px;
       --r-card:   18px;
       --r-sm:     10px;
@@ -42,175 +45,1012 @@
       --shadow:   0 4px 24px rgba(46,134,181,.1);
       --shadow-hover: 0 16px 48px rgba(46,134,181,.22);
     }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--off); color: var(--text); overflow-x: hidden; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
     a { text-decoration: none; color: inherit; }
     button { cursor: pointer; font-family: inherit; border: none; }
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); height: 58px; }
-    .nav-wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--text); display: flex; align-items: center; gap: 6px; white-space: nowrap; }
-    .nav-logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cta); flex-shrink: 0; }
-    .nav-search { flex: 1; max-width: 380px; display: flex; align-items: center; background: var(--off); border: 1.5px solid var(--border); border-radius: var(--r-pill); padding: 0 14px; gap: 8px; transition: border-color var(--tr), box-shadow var(--tr); }
-    .nav-search:focus-within { border-color: var(--sky-dk); box-shadow: 0 0 0 3px rgba(123,191,223,.18); }
+
+    /* ── NAV ─────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      height: 58px;
+    }
+    .nav-wrap {
+      max-width: 1180px; margin: 0 auto; padding: 0 20px;
+      height: 100%;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem; color: var(--text);
+      display: flex; align-items: center; gap: 6px;
+      white-space: nowrap;
+    }
+    .nav-logo-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--cta);
+      flex-shrink: 0;
+    }
+
+    /* search bar */
+    .nav-search {
+      flex: 1; max-width: 380px;
+      display: flex; align-items: center;
+      background: var(--off);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-pill);
+      padding: 0 14px; gap: 8px;
+      transition: border-color var(--tr), box-shadow var(--tr);
+    }
+    .nav-search:focus-within {
+      border-color: var(--sky-dk);
+      box-shadow: 0 0 0 3px rgba(123,191,223,.18);
+    }
     .nav-search-icon { font-size: .85rem; color: var(--text-lt); flex-shrink: 0; }
-    .nav-search input { border: none; outline: none; background: transparent; font-family: 'DM Sans', sans-serif; font-size: .85rem; color: var(--text); width: 100%; padding: 8px 0; }
+    .nav-search input {
+      border: none; outline: none; background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .85rem; color: var(--text); width: 100%;
+      padding: 8px 0;
+    }
+    .nav-search input::placeholder { color: var(--text-lt); }
+
     .nav-actions { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
-    .nav-btn { font-size: .78rem; font-weight: 500; padding: 7px 16px; border-radius: var(--r-pill); transition: all var(--tr); white-space: nowrap; }
-    .nav-btn-ghost { background: transparent; border: 1.5px solid var(--border); color: var(--text-md); }
+    .nav-btn {
+      font-size: .78rem; font-weight: 500;
+      padding: 7px 16px; border-radius: var(--r-pill);
+      transition: all var(--tr); white-space: nowrap;
+    }
+    .nav-btn-ghost {
+      background: transparent; border: 1.5px solid var(--border);
+      color: var(--text-md);
+    }
     .nav-btn-ghost:hover { border-color: var(--sky-dk); color: var(--sky-dk); }
-    .nav-btn-fill { background: var(--cta); color: var(--white); border: none; box-shadow: var(--cta-shadow); letter-spacing: .02em; }
+    .nav-btn-fill {
+      background: var(--cta);
+      color: var(--white); border: none;
+      box-shadow: var(--cta-shadow);
+      letter-spacing: .02em;
+    }
     .nav-btn-fill:hover { background: var(--cta-hover); transform: translateY(-1px); box-shadow: var(--cta-shadow-hover); }
-    .hero-strip { background: linear-gradient(135deg, #dceef8 0%, #d4f0e8 40%, #ecddf8 80%, #ffd6e7 100%); border-bottom: 1px solid var(--border); padding: 28px 20px; position: relative; overflow: hidden; }
-    .hero-strip-inner { max-width: 1180px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-    .hero-strip-text h1 { font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3.5vw, 2.2rem); color: var(--text); line-height: 1.2; }
+
+    /* ── HERO STRIP ──────────────────────────────── */
+    .hero-strip {
+      background: linear-gradient(135deg, #dceef8 0%, #d4f0e8 40%, #ecddf8 80%, #ffd6e7 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 20px;
+      position: relative; overflow: hidden;
+    }
+    .hero-strip::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 120% at 80% 50%, rgba(255,255,255,.5) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-strip-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      flex-wrap: wrap;
+    }
+    .hero-strip-text h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      color: var(--text); line-height: 1.2;
+    }
     .hero-strip-text h1 em { font-style: italic; color: var(--sky-vivid); }
-    .hero-strip-text p { font-size: .9rem; color: var(--text-md); font-weight: 300; margin-top: 6px; }
-    .hero-strip-badges { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-    .hero-badge { display: flex; align-items: center; gap: 5px; background: rgba(255,255,255,.8); border: 1px solid rgba(255,255,255,.95); border-radius: var(--r-pill); padding: 6px 14px; font-size: .78rem; color: var(--text-md); white-space: nowrap; }
-    .cat-bar { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 58px; z-index: 90; }
-    .cat-bar-inner { max-width: 1180px; margin: 0 auto; padding: 0 20px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
-    .cat-tab { display: flex; align-items: center; gap: 6px; padding: 12px 16px; font-size: .82rem; font-weight: 400; color: var(--text-md); border-bottom: 2px solid transparent; white-space: nowrap; transition: all var(--tr); cursor: pointer; background: none; }
-    .cat-tab.active { color: var(--sky-vivid); border-bottom-color: var(--sky-vivid); font-weight: 500; }
-    .main { max-width: 1180px; margin: 0 auto; padding: 24px 20px 60px; display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: start; }
-    .sidebar { position: sticky; top: 114px; display: flex; flex-direction: column; gap: 16px; }
-    .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-card); padding: 18px; }
-    .sidebar-title { font-size: .7rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--text-lt); margin-bottom: 12px; }
+    .hero-strip-text p {
+      font-size: .9rem; color: var(--text-md);
+      font-weight: 300; margin-top: 6px;
+    }
+    .hero-strip-badges {
+      display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    }
+    .hero-badge {
+      display: flex; align-items: center; gap: 5px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(255,255,255,.95);
+      border-radius: var(--r-pill);
+      padding: 6px 14px;
+      font-size: .78rem; color: var(--text-md);
+      white-space: nowrap;
+    }
+
+    /* ── CATEGORY TABS ───────────────────────────── */
+    .cat-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 58px; z-index: 90;
+    }
+    .cat-bar-inner {
+      max-width: 1180px; margin: 0 auto; padding: 0 20px;
+      display: flex; gap: 4px; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .cat-bar-inner::-webkit-scrollbar { display: none; }
+    .cat-tab {
+      display: flex; align-items: center; gap: 6px;
+      padding: 12px 16px;
+      font-size: .82rem; font-weight: 400;
+      color: var(--text-md);
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: all var(--tr);
+      cursor: pointer; background: none; border-left: none; border-right: none; border-top: none;
+    }
+    .cat-tab:hover { color: var(--text); }
+    .cat-tab.active {
+      color: var(--sky-vivid);
+      border-bottom-color: var(--sky-vivid);
+      font-weight: 500;
+    }
+    .cat-tab-emoji { font-size: .95rem; }
+
+    /* ── MAIN LAYOUT ─────────────────────────────── */
+    .main {
+      max-width: 1180px; margin: 0 auto;
+      padding: 24px 20px 60px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR ─────────────────────────────────── */
+    .sidebar {
+      position: sticky; top: 114px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      padding: 18px;
+    }
+    .sidebar-title {
+      font-size: .7rem; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-lt); margin-bottom: 12px;
+    }
+
+    /* price filter */
     .price-options { display: flex; flex-direction: column; gap: 6px; }
-    .price-opt { display: flex; align-items: center; gap: 8px; font-size: .83rem; color: var(--text-md); cursor: pointer; padding: 4px 0; }
-    .price-opt input[type=radio] { accent-color: var(--sky-dk); }
-    .sort-select { width: 100%; padding: 8px 10px; border: 1.5px solid var(--border); border-radius: var(--r-sm); background: var(--off); font-family: 'DM Sans', sans-serif; font-size: .83rem; color: var(--text); outline: none; }
-    .promo-card { background: linear-gradient(145deg, var(--sky-lt), var(--mint-lt)); border: 1px solid var(--border); border-radius: var(--r-card); padding: 18px; text-align: center; }
-    .promo-card-btn { display: block; width: 100%; padding: 9px; background: var(--cta); color: var(--white); border-radius: var(--r-pill); font-size: .78rem; font-weight: 600; box-shadow: var(--cta-shadow); }
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-card); overflow: hidden; position: relative; transition: transform var(--tr), box-shadow var(--tr); }
-    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
-    .card-img { aspect-ratio: 1; position: relative; display: flex; align-items: center; justify-content: center; }
-    .bg-a { background: linear-gradient(145deg, #c8e8f8, #a0d4f0); }
-    .bg-b { background: linear-gradient(145deg, #c0eede, #90ddc8); }
-    .bg-c { background: linear-gradient(145deg, #ffd8ea, #ffb3d1); }
-    .bg-d { background: linear-gradient(145deg, #f0e6ff, #d8c8fa); }
-    .card-emoji { font-size: 3rem; z-index: 1; }
-    .card-badge { position: absolute; top: 10px; left: 10px; font-size: .6rem; font-weight: 700; text-transform: uppercase; padding: 3px 9px; border-radius: var(--r-pill); z-index: 2; }
-    .b-new { background: #b8f0e0; color: #0e6b52; }
-    .b-hot { background: #ffc2d8; color: #a01040; }
-    .b-pick { background: #b8dcf5; color: #164f78; }
-    .b-sale { background: #ffe49a; color: #7a4a00; }
+    .price-opt {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .83rem; color: var(--text-md);
+      cursor: pointer; padding: 4px 0;
+      transition: color var(--tr);
+    }
+    .price-opt:hover { color: var(--text); }
+    .price-opt input[type=radio] { accent-color: var(--sky-dk); cursor: pointer; }
+    .price-opt.selected { color: var(--sky-dk); font-weight: 500; }
+
+    /* sort */
+    .sort-select {
+      width: 100%; padding: 8px 10px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-sm);
+      background: var(--off);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .83rem; color: var(--text);
+      outline: none; cursor: pointer;
+      transition: border-color var(--tr);
+    }
+    .sort-select:focus { border-color: var(--sky-dk); }
+
+    /* promo card */
+    .promo-card {
+      background: linear-gradient(145deg, var(--sky-lt), var(--mint-lt));
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      padding: 18px; text-align: center;
+    }
+    .promo-card-emoji { font-size: 2rem; display: block; margin-bottom: 8px; }
+    .promo-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem; color: var(--text); margin-bottom: 6px;
+    }
+    .promo-card p { font-size: .78rem; color: var(--text-md); font-weight: 300; margin-bottom: 12px; line-height: 1.5; }
+    .promo-card-btn {
+      display: block; width: 100%;
+      padding: 9px;
+      background: var(--cta);
+      color: var(--white); border-radius: var(--r-pill);
+      font-size: .78rem; font-weight: 600;
+      transition: all var(--tr);
+      box-shadow: var(--cta-shadow);
+    }
+    .promo-card-btn:hover { background: var(--cta-hover); transform: translateY(-1px); }
+
+    /* ── PRODUCT AREA ────────────────────────────── */
+    .products-area {}
+    .products-toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
+    }
+    .products-count {
+      font-size: .83rem; color: var(--text-md);
+    }
+    .products-count strong { color: var(--text); }
+    .view-toggle {
+      display: flex; gap: 4px;
+    }
+    .view-btn {
+      width: 32px; height: 32px;
+      background: var(--white); border: 1.5px solid var(--border);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; color: var(--text-lt);
+      transition: all var(--tr); cursor: pointer;
+    }
+    .view-btn.active { border-color: var(--sky-dk); color: var(--sky-dk); background: var(--sky-lt); }
+
+    /* ── PRODUCT GRID ────────────────────────────── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .grid.list-view { grid-template-columns: 1fr; }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform var(--tr), box-shadow var(--tr), border-color var(--tr);
+      cursor: pointer;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border-hover);
+    }
+
+    /* wishlist */
+    .card-wish {
+      position: absolute; top: 10px; right: 10px; z-index: 2;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: rgba(255,255,255,.9);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; transition: all var(--tr);
+      opacity: 0;
+    }
+    .card:hover .card-wish { opacity: 1; }
+    .card-wish:hover { background: var(--blush); transform: scale(1.15); }
+    .card-wish.active { opacity: 1; background: var(--blush); }
+
+    /* image area */
+    .card-img {
+      aspect-ratio: 1; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card-img-bg {
+      position: absolute; inset: 0;
+      transition: transform .5s ease;
+    }
+    .card:hover .card-img-bg { transform: scale(1.06); }
+    /* richer, more distinct card image backgrounds */
+    .bg-a { background: linear-gradient(145deg, #c8e8f8, #a0d4f0); }   /* sky blue   */
+    .bg-b { background: linear-gradient(145deg, #c0eede, #90ddc8); }   /* mint teal  */
+    .bg-c { background: linear-gradient(145deg, #ffd8ea, #ffb3d1); }   /* warm blush */
+    .bg-d { background: linear-gradient(145deg, #f0e6ff, #d8c8fa); }   /* lavender   */
+
+    .card-emoji {
+      font-size: 3rem; position: relative; z-index: 1;
+      filter: drop-shadow(0 3px 8px rgba(0,0,0,.1));
+      transition: transform var(--tr);
+    }
+    .card:hover .card-emoji { transform: scale(1.12) rotate(-4deg); }
+
+    .card-badge {
+      position: absolute; top: 10px; left: 10px; z-index: 2;
+      font-size: .6rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: var(--r-pill);
+    }
+    .b-new  { background: #b8f0e0; color: #0e6b52; font-weight: 700; }
+    .b-hot  { background: #ffc2d8; color: #a01040; font-weight: 700; }
+    .b-pick { background: #b8dcf5; color: #164f78; font-weight: 700; }
+    .b-sale { background: #ffe49a; color: #7a4a00; font-weight: 700; }
+
+    /* card body */
     .card-body { padding: 14px; display: flex; flex-direction: column; flex: 1; }
-    .card-name { font-family: 'DM Serif Display', serif; font-size: .98rem; margin-bottom: 5px; }
-    .card-desc { font-size: .78rem; color: var(--text-md); line-height: 1.5; margin-bottom: 12px; }
-    .card-price { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--sky-vivid); }
-    .card-price small { font-family: 'DM Sans', sans-serif; font-size: .65rem; color: var(--text-lt); display: block; }
-    .card-btn { background: var(--cta); color: var(--white); padding: 9px 16px; border-radius: var(--r-pill); font-size: .76rem; font-weight: 600; box-shadow: var(--cta-shadow); }
-    .newsletter-strip { background: linear-gradient(135deg, #d4eef8, #ffd6e7); padding: 32px 20px; }
-    footer { background: var(--white); border-top: 1px solid var(--border); padding: 24px 20px; font-size: .78rem; }
+    .card-cat {
+      font-size: .65rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-lt); margin-bottom: 3px;
+    }
+    .card-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: .98rem; color: var(--text);
+      line-height: 1.3; margin-bottom: 5px;
+    }
+    .card-desc {
+      font-size: .78rem; color: var(--text-md); font-weight: 300;
+      line-height: 1.55; flex: 1; margin-bottom: 12px;
+    }
+    .card-stars {
+      display: flex; align-items: center; gap: 4px;
+      margin-bottom: 10px;
+    }
+    .stars { color: #f4b740; font-size: .75rem; letter-spacing: .5px; }
+    .review-count { font-size: .7rem; color: var(--text-lt); }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    }
+    .card-price {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem; color: var(--sky-vivid);
+      font-weight: 700;
+    }
+    .card-price small {
+      font-family: 'DM Sans', sans-serif;
+      font-size: .65rem; color: var(--text-lt);
+      display: block; font-weight: 300; line-height: 1;
+    }
+    .card-btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 9px 16px;
+      background: var(--cta);
+      color: var(--white); border-radius: var(--r-pill);
+      font-size: .76rem; font-weight: 600;
+      letter-spacing: .02em;
+      transition: all var(--tr); white-space: nowrap; flex-shrink: 0;
+      box-shadow: var(--cta-shadow);
+    }
+    .card-btn:hover {
+      background: var(--cta-hover);
+      transform: translateY(-1px) scale(1.03);
+      box-shadow: var(--cta-shadow-hover);
+      color: var(--white);
+    }
+    .card-btn svg { width: 11px; height: 11px; }
+
+    /* LIST VIEW overrides */
+    .grid.list-view .card {
+      flex-direction: row; max-height: 140px;
+    }
+    .grid.list-view .card-img {
+      width: 130px; min-width: 130px; aspect-ratio: unset;
+    }
+    .grid.list-view .card-body { padding: 14px 16px; }
+    .grid.list-view .card-desc { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .grid.list-view .card-wish { top: 10px; right: 10px; }
+
+    /* ── LOAD MORE ───────────────────────────────── */
+    .load-more-wrap {
+      text-align: center; margin-top: 28px;
+    }
+    .load-more-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 28px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-pill);
+      font-size: .85rem; color: var(--text-md);
+      transition: all var(--tr); cursor: pointer;
+    }
+    .load-more-btn:hover { border-color: var(--sky-dk); color: var(--sky-dk); }
+
+    /* ── MINI BANNER ─────────────────────────────── */
+    .mini-banner {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--sky-lt), var(--mint-lt));
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      flex-wrap: wrap;
+    }
+    .mini-banner-left {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .mini-banner-icon { font-size: 2rem; }
+    .mini-banner h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem; color: var(--text);
+    }
+    .mini-banner p { font-size: .82rem; color: var(--text-md); font-weight: 300; margin-top: 2px; }
+
+    /* ── NEWSLETTER STRIP ────────────────────────── */
+    .newsletter-strip {
+      background: linear-gradient(135deg, #d4eef8 0%, #cceee4 40%, #eadaf8 80%, #ffd6e7 100%);
+      border-top: 1px solid var(--border);
+      padding: 32px 20px;
+    }
+    .newsletter-strip h2 em { font-style: italic; color: var(--sky-vivid); }
+    .newsletter-form button {
+      padding: 10px 20px;
+      background: var(--cta);
+      color: var(--white); font-size: .82rem; font-weight: 600;
+      transition: all var(--tr);
+      box-shadow: var(--cta-shadow);
+    }
+    .newsletter-form button:hover { background: var(--cta-hover); }
+    .newsletter-strip-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .newsletter-strip h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem; color: var(--text);
+    }
+    .newsletter-strip h2 em { font-style: italic; color: var(--sky-dk); }
+    .newsletter-strip p { font-size: .85rem; color: var(--text-md); font-weight: 300; margin-top: 3px; }
+    .newsletter-form {
+      display: flex; gap: 0;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-pill);
+      overflow: hidden;
+      transition: border-color var(--tr), box-shadow var(--tr);
+      flex-shrink: 0;
+    }
+    .newsletter-form:focus-within {
+      border-color: var(--sky-dk);
+      box-shadow: 0 0 0 3px rgba(123,191,223,.18);
+    }
+    .newsletter-form input {
+      border: none; outline: none;
+      padding: 10px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .85rem; color: var(--text); min-width: 220px;
+      background: transparent;
+    }
+    .newsletter-form input::placeholder { color: var(--text-lt); }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      padding: 24px 20px;
+    }
+    .footer-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem; color: var(--text);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .footer-links {
+      display: flex; gap: 20px; flex-wrap: wrap;
+    }
+    .footer-links a { font-size: .78rem; color: var(--text-lt); transition: color var(--tr); }
+    .footer-links a:hover { color: var(--sky-dk); }
+    .footer-disclosure {
+      width: 100%;
+      font-size: .68rem; color: var(--text-lt); font-weight: 300;
+      font-style: italic; line-height: 1.6;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── ANIMATIONS ──────────────────────────────── */
+    .card {
+      opacity: 0; transform: translateY(16px);
+      animation: cardIn .45s ease forwards;
+    }
+    .card:nth-child(1)  { animation-delay: .04s; }
+    .card:nth-child(2)  { animation-delay: .08s; }
+    .card:nth-child(3)  { animation-delay: .12s; }
+    .card:nth-child(4)  { animation-delay: .16s; }
+    .card:nth-child(5)  { animation-delay: .20s; }
+    .card:nth-child(6)  { animation-delay: .24s; }
+    .card:nth-child(7)  { animation-delay: .28s; }
+    .card:nth-child(8)  { animation-delay: .32s; }
+    .card:nth-child(9)  { animation-delay: .36s; }
+    .card:nth-child(10) { animation-delay: .40s; }
+    .card:nth-child(11) { animation-delay: .44s; }
+    .card:nth-child(12) { animation-delay: .48s; }
+
+    @keyframes cardIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 900px) {
+      .main { grid-template-columns: 1fr; }
+      .sidebar { position: static; flex-direction: row; flex-wrap: wrap; }
+      .sidebar-card { flex: 1; min-width: 160px; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .nav-search { display: none; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .grid.list-view { grid-template-columns: 1fr; }
+      .hero-strip-inner { flex-direction: column; align-items: flex-start; }
+      .newsletter-strip-inner { flex-direction: column; }
+      .newsletter-form input { min-width: 160px; }
+    }
   </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav>
   <div class="nav-wrap">
-    <div class="nav-logo"><div class="nav-logo-dot"></div>The Soft Finds</div>
-    <div class="nav-search">🔍<input type="text" placeholder="Search cute finds..."/></div>
+    <div class="nav-logo">
+      <div class="nav-logo-dot"></div>
+      The Soft Finds
+    </div>
+    <div class="nav-search">
+      <span class="nav-search-icon">🔍</span>
+      <input type="text" placeholder="Search cute finds…" id="search-input"/>
+    </div>
     <div class="nav-actions">
-      <button class="nav-btn nav-btn-ghost">Newsletter</button>
+      <button class="nav-btn nav-btn-ghost" onclick="scrollTo({top:document.getElementById('newsletter-strip').offsetTop,behavior:'smooth'})">Newsletter</button>
       <a href="#shop" class="nav-btn nav-btn-fill">Shop Now ✦</a>
     </div>
   </div>
 </nav>
 
+<!-- ── HERO STRIP ── -->
 <div class="hero-strip">
   <div class="hero-strip-inner">
     <div class="hero-strip-text">
       <h1>Aesthetic Finds, <em>Curated for You</em> 🌸</h1>
-      <p>Handpicked cute & cozy Amazon India products — room decor, fashion & more.</p>
+      <p>Handpicked cute & cozy Amazon products — room decor, fashion, kawaii & more.</p>
     </div>
     <div class="hero-strip-badges">
       <div class="hero-badge">☁️ Cloud Baby Aesthetic</div>
-      <div class="hero-badge">📦 Amazon Prime India</div>
-      <div class="hero-badge">💸 ₹799 – ₹14,999</div>
+      <div class="hero-badge">📦 All on Amazon Prime</div>
+      <div class="hero-badge">💸 $10 – $200</div>
       <div class="hero-badge">✨ Updated Weekly</div>
     </div>
   </div>
 </div>
 
+<!-- ── CATEGORY TABS ── -->
 <div class="cat-bar" id="shop">
   <div class="cat-bar-inner">
-    <button class="cat-tab active">✨ All Finds</button>
-    <button class="cat-tab">🏮 Room Decor</button>
-    <button class="cat-tab">🕯️ Cozy Lifestyle</button>
-    <button class="cat-tab">🎀 Fashion</button>
-    <button class="cat-tab">🧸 Kawaii & Cute</button>
-    <button class="cat-tab">📓 Stationery</button>
+    <button class="cat-tab active" data-cat="all"><span class="cat-tab-emoji">✨</span> All Finds</button>
+    <button class="cat-tab" data-cat="room"><span class="cat-tab-emoji">🏮</span> Room Decor</button>
+    <button class="cat-tab" data-cat="cozy"><span class="cat-tab-emoji">🕯️</span> Cozy Lifestyle</button>
+    <button class="cat-tab" data-cat="fashion"><span class="cat-tab-emoji">🎀</span> Fashion</button>
+    <button class="cat-tab" data-cat="kawaii"><span class="cat-tab-emoji">🧸</span> Kawaii & Cute</button>
+    <button class="cat-tab" data-cat="stationary"><span class="cat-tab-emoji">📓</span> Stationery</button>
   </div>
 </div>
 
+<!-- ── MAIN ── -->
 <div class="main">
+
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-card">
       <div class="sidebar-title">Price Range</div>
       <div class="price-options">
-        <label class="price-opt"><input type="radio" name="p" checked> All Prices</label>
-        <label class="price-opt"><input type="radio" name="p"> Under ₹999</label>
-        <label class="price-opt"><input type="radio" name="p"> ₹1,000 – ₹2,999</label>
-        <label class="price-opt"><input type="radio" name="p"> ₹3,000 – ₹7,999</label>
-        <label class="price-opt"><input type="radio" name="p"> ₹8,000+</label>
+        <label class="price-opt selected"><input type="radio" name="price" value="all" checked> All Prices</label>
+        <label class="price-opt"><input type="radio" name="price" value="under20"> Under $20</label>
+        <label class="price-opt"><input type="radio" name="price" value="20-50"> $20 – $50</label>
+        <label class="price-opt"><input type="radio" name="price" value="50-100"> $50 – $100</label>
+        <label class="price-opt"><input type="radio" name="price" value="100plus"> $100+</label>
       </div>
     </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-title">Sort By</div>
+      <select class="sort-select" id="sort-select">
+        <option value="featured">✨ Featured</option>
+        <option value="price-low">💸 Price: Low to High</option>
+        <option value="price-high">💎 Price: High to Low</option>
+        <option value="popular">🔥 Most Popular</option>
+        <option value="newest">🆕 Newest</option>
+      </select>
+    </div>
+
     <div class="promo-card">
+      <span class="promo-card-emoji">💌</span>
       <h3>Get Weekly Drops</h3>
-      <p>New aesthetic finds every Monday.</p>
-      <button class="promo-card-btn">Join Free →</button>
+      <p>New aesthetic finds every Monday — straight to your inbox.</p>
+      <a href="#newsletter-strip" class="promo-card-btn">Join Free →</a>
     </div>
   </aside>
 
+  <!-- PRODUCTS -->
   <section class="products-area">
-    <div class="grid">
-      <div class="card">
-        <div class="card-img"><div class="bg-a" style="position:absolute;inset:0"></div><div class="card-badge b-pick">Editor's Pick</div><div class="card-emoji">☁️</div></div>
+    <div class="products-toolbar">
+      <div class="products-count">Showing <strong id="count-display">12</strong> cute finds</div>
+      <div class="view-toggle">
+        <button class="view-btn active" id="grid-btn" title="Grid view">▦</button>
+        <button class="view-btn" id="list-btn" title="List view">☰</button>
+      </div>
+    </div>
+
+    <div class="grid" id="product-grid">
+
+      <!-- Mini banner at top of grid, col-span -->
+      <div class="mini-banner" style="grid-column: 1 / -1;">
+        <div class="mini-banner-left">
+          <div class="mini-banner-icon">🌟</div>
+          <div>
+            <h3>This Week's Drop — Cloud Baby Edit</h3>
+            <p>12 new aesthetic finds just added · All under $95 · Prime shipping</p>
+          </div>
+        </div>
+        <a href="#" class="card-btn" style="text-decoration:none">Shop Drop →</a>
+      </div>
+
+      <!-- CARD 1 -->
+      <div class="card" data-cat="room" data-price="30-65" data-pop="95">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-a"></div>
+          <div class="card-badge b-pick">Editor's Pick</div>
+          <div class="card-emoji">☁️</div>
+        </div>
         <div class="card-body">
+          <div class="card-cat">Room Decor</div>
           <div class="card-name">Cloud LED Night Light</div>
-          <p class="card-desc">Colour-changing cloud lamp. The dreamiest shelf upgrade.</p>
-          <div class="card-price"><small>From</small>₹2,499</div>
-          <button class="card-btn">Amazon India →</button>
+          <div class="card-desc">Colour-changing cloud lamp with remote. The dreamiest shelf upgrade.</div>
+          <div class="card-stars"><span class="stars">★★★★★</span><span class="review-count">(2.4k)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$35</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-img"><div class="bg-c" style="position:absolute;inset:0"></div><div class="card-badge b-hot">Trending</div><div class="card-emoji">🎀</div></div>
+
+      <!-- CARD 2 -->
+      <div class="card" data-cat="fashion" data-price="12-28" data-pop="88">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-c"></div>
+          <div class="card-badge b-hot">Trending</div>
+          <div class="card-emoji">🎀</div>
+        </div>
         <div class="card-body">
+          <div class="card-cat">Fashion Accessories</div>
           <div class="card-name">Satin Bow Hair Clips</div>
-          <p class="card-desc">Oversized satin bows in 6 shades. Set of 6.</p>
-          <div class="card-price"><small>From</small>₹899</div>
-          <button class="card-btn">Amazon India →</button>
+          <div class="card-desc">Oversized satin bows in 6 pastel shades. Set of 6.</div>
+          <div class="card-stars"><span class="stars">★★★★★</span><span class="review-count">(1.8k)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$14</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-img"><div class="bg-b" style="position:absolute;inset:0"></div><div class="card-badge b-new">New Drop</div><div class="card-emoji">🧸</div></div>
+
+      <!-- CARD 3 -->
+      <div class="card" data-cat="kawaii" data-price="18-40" data-pop="91">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-b"></div>
+          <div class="card-badge b-new">New Drop</div>
+          <div class="card-emoji">🧸</div>
+        </div>
         <div class="card-body">
+          <div class="card-cat">Kawaii & Cute</div>
           <div class="card-name">Pastel Squishy Plushie</div>
-          <p class="card-desc">Ultra-soft pastel plushies. Perfect for gifting.</p>
-          <div class="card-price"><small>From</small>₹1,499</div>
-          <button class="card-btn">Amazon India →</button>
+          <div class="card-desc">Ultra-soft pastel plushies. Perfect shelf companion or gift.</div>
+          <div class="card-stars"><span class="stars">★★★★☆</span><span class="review-count">(987)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$18</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <div class="card-img"><div class="bg-c" style="position:absolute;inset:0"></div><div class="card-badge b-sale">Under ₹999</div><div class="card-emoji">💎</div></div>
+
+      <!-- CARD 4 -->
+      <div class="card" data-cat="cozy" data-price="22-45" data-pop="84">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-d"></div>
+          <div class="card-emoji">🕯️</div>
+        </div>
         <div class="card-body">
-          <div class="card-name">Pearl Butterfly Pins</div>
-          <p class="card-desc">Dainty pearl butterfly pins. Set of 8.</p>
-          <div class="card-price"><small>From</small>₹799</div>
-          <button class="card-btn">Amazon India →</button>
+          <div class="card-cat">Cozy Lifestyle</div>
+          <div class="card-name">Pastel Soy Candle Set</div>
+          <div class="card-desc">4 soft-scented soy candles in pastel cloud holders.</div>
+          <div class="card-stars"><span class="stars">★★★★★</span><span class="review-count">(3.1k)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$22</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
         </div>
       </div>
+
+      <!-- CARD 5 -->
+      <div class="card" data-cat="room" data-price="18-45" data-pop="78">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-a"></div>
+          <div class="card-badge b-pick">Most Saved</div>
+          <div class="card-emoji">🌟</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Room Decor</div>
+          <div class="card-name">Fairy Light Curtain</div>
+          <div class="card-desc">Warm-white micro-LED curtain. Transforms any wall instantly.</div>
+          <div class="card-stars"><span class="stars">★★★★★</span><span class="review-count">(5.2k)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$19</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="card" data-cat="cozy" data-price="18-35" data-pop="76">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-b"></div>
+          <div class="card-emoji">☕</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Cozy Lifestyle</div>
+          <div class="card-name">Aesthetic Ceramic Mug</div>
+          <div class="card-desc">Hand-painted pastel ceramic with cloud & star motifs.</div>
+          <div class="card-stars"><span class="stars">★★★★☆</span><span class="review-count">(743)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$20</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 7 -->
+      <div class="card" data-cat="stationary" data-price="16-38" data-pop="82">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-c"></div>
+          <div class="card-badge b-hot">Fan Fave</div>
+          <div class="card-emoji">📓</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Stationery</div>
+          <div class="card-name">Kawaii Stationery Set</div>
+          <div class="card-desc">Pastel pens, washi tape, star stickies & floral stickers.</div>
+          <div class="card-stars"><span class="stars">★★★★★</span><span class="review-count">(2.0k)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$16</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 8 -->
+      <div class="card" data-cat="room" data-price="45-95" data-pop="73">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-d"></div>
+          <div class="card-badge b-new">Trending</div>
+          <div class="card-emoji">🪞</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Room Decor</div>
+          <div class="card-name">Arched Vanity Mirror</div>
+          <div class="card-desc">Arch-shaped mirror, gold or white. Instantly editorial.</div>
+          <div class="card-stars"><span class="stars">★★★★☆</span><span class="review-count">(1.1k)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$48</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 9 -->
+      <div class="card" data-cat="cozy" data-price="35-80" data-pop="79">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-b"></div>
+          <div class="card-emoji">🧶</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Cozy Lifestyle</div>
+          <div class="card-name">Chunky Knit Throw Blanket</div>
+          <div class="card-desc">Chunky pastel knit blanket. The ultimate cozy addition.</div>
+          <div class="card-stars"><span class="stars">★★★★★</span><span class="review-count">(4.3k)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$38</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 10 -->
+      <div class="card" data-cat="fashion" data-price="10-22" data-pop="86">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-c"></div>
+          <div class="card-badge b-sale">Under $15</div>
+          <div class="card-emoji">💎</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Fashion Accessories</div>
+          <div class="card-name">Pearl Butterfly Hair Pins</div>
+          <div class="card-desc">Dainty pearl butterfly pins. Set of 8 in mixed styles.</div>
+          <div class="card-stars"><span class="stars">★★★★★</span><span class="review-count">(3.6k)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$11</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 11 -->
+      <div class="card" data-cat="room" data-price="22-45" data-pop="70">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-a"></div>
+          <div class="card-emoji">🍄</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Room Decor</div>
+          <div class="card-name">Mushroom LED Table Lamp</div>
+          <div class="card-desc">Soft mushroom lamp with warm glow. Cottagecore-meets-kawaii.</div>
+          <div class="card-stars"><span class="stars">★★★★☆</span><span class="review-count">(892)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$26</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 12 -->
+      <div class="card" data-cat="stationary" data-price="25-55" data-pop="74">
+        <button class="card-wish" onclick="toggleWish(this)">🤍</button>
+        <div class="card-img">
+          <div class="card-img-bg bg-d"></div>
+          <div class="card-badge b-new">New</div>
+          <div class="card-emoji">🗂️</div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Stationery</div>
+          <div class="card-name">Pastel Desk Organizer Set</div>
+          <div class="card-desc">5-piece pastel desk set — pen holder, tray, and more.</div>
+          <div class="card-stars"><span class="stars">★★★★★</span><span class="review-count">(1.4k)</span></div>
+          <div class="card-footer">
+            <div class="card-price"><small>From</small>$28</div>
+            <a href="#" class="card-btn" target="_blank" rel="noopener nofollow">Amazon →<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+
+    <div class="load-more-wrap">
+      <button class="load-more-btn" id="load-more">Load More Finds ↓</button>
     </div>
   </section>
 </div>
 
+<!-- ── NEWSLETTER ── -->
+<div class="newsletter-strip" id="newsletter-strip">
+  <div class="newsletter-strip-inner">
+    <div>
+      <h2>Get <em>Weekly Drops</em> 🌸</h2>
+      <p>New aesthetic Amazon finds every Monday — no spam, ever.</p>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" placeholder="your@email.com" id="nl-input"/>
+      <button id="nl-btn">Subscribe 🌸</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
 <footer>
-  <div class="footer-disclosure">
-    <strong>Affiliate Disclosure:</strong> Participating in the Amazon Associates Program. © 2026 The Soft Finds.
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="nav-logo-dot"></div>
+      The Soft Finds
+    </div>
+    <div class="footer-links">
+      <a href="#">Pinterest</a>
+      <a href="#">About</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Affiliate Disclosure</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-disclosure">
+      <strong>Affiliate Disclosure:</strong> The Soft Finds participates in the Amazon Services LLC Associates Program. As an Amazon Associate we earn from qualifying purchases at no extra cost to you. © 2026 The Soft Finds.
+    </div>
   </div>
 </footer>
 
+<script>
+  // ── CATEGORY FILTER
+  const tabs = document.querySelectorAll('.cat-tab');
+  const cards = document.querySelectorAll('.card[data-cat]');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const cat = tab.dataset.cat;
+      let visible = 0;
+      cards.forEach(c => {
+        const show = cat === 'all' || c.dataset.cat === cat;
+        c.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('count-display').textContent = visible;
+    });
+  });
+
+  // ── SEARCH
+  document.getElementById('search-input').addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    let visible = 0;
+    cards.forEach(c => {
+      const name = c.querySelector('.card-name').textContent.toLowerCase();
+      const cat  = c.querySelector('.card-cat').textContent.toLowerCase();
+      const show = !q || name.includes(q) || cat.includes(q);
+      c.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    document.getElementById('count-display').textContent = visible;
+    // reset tab active
+    tabs.forEach(t => t.classList.remove('active'));
+    tabs[0].classList.add('active');
+  });
+
+  // ── VIEW TOGGLE
+  const gridBtn = document.getElementById('grid-btn');
+  const listBtn = document.getElementById('list-btn');
+  const grid = document.getElementById('product-grid');
+  gridBtn.addEventListener('click', () => {
+    grid.classList.remove('list-view');
+    gridBtn.classList.add('active'); listBtn.classList.remove('active');
+  });
+  listBtn.addEventListener('click', () => {
+    grid.classList.add('list-view');
+    listBtn.classList.add('active'); gridBtn.classList.remove('active');
+  });
+
+  // ── WISHLIST
+  function toggleWish(btn) {
+    btn.classList.toggle('active');
+    btn.textContent = btn.classList.contains('active') ? '🩷' : '🤍';
+  }
+
+  // ── NAV SHADOW
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 10 ? '0 2px 20px rgba(100,180,220,.15)' : '';
+  });
+
+  // ── NEWSLETTER
+  document.getElementById('nl-btn').addEventListener('click', () => {
+    const input = document.getElementById('nl-input');
+    if (!input.value.includes('@')) { input.focus(); return; }
+    document.getElementById('nl-btn').textContent = 'You\'re in! 🌸';
+    document.getElementById('nl-btn').style.background = '#7dcfc0';
+    input.value = ''; input.disabled = true;
+    document.getElementById('nl-btn').disabled = true;
+  });
+
+  // ── LOAD MORE (simulate)
+  document.getElementById('load-more').addEventListener('click', function() {
+    this.textContent = 'All finds loaded! ✨';
+    this.disabled = true;
+    this.style.opacity = '.5';
+  });
+
+  // ── PRICE FILTER
+  document.querySelectorAll('.price-opt input').forEach(radio => {
+    radio.addEventListener('change', function() {
+      document.querySelectorAll('.price-opt').forEach(o => o.classList.remove('selected'));
+      this.closest('.price-opt').classList.add('selected');
+    });
+  });
+</script>
 </body>
 </html>
